@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import { Room } from 'types'
 
 const Room = ({ room }: { room: Room }) => {
-  const images = room?.images?.data.map(({ attributes: image }) => {
+  const images = room?.images?.data?.map(({ attributes: image }) => {
     return {
       original: image?.formats?.medium?.url,
       thumbnail: image?.formats?.thumbnail?.url,

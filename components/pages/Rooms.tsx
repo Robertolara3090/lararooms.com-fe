@@ -23,7 +23,7 @@ const Rooms = ({ rooms }: { rooms: StrapiAttribute<Room>[] }) => {
             justifyItems: 'start',
           }}
         >
-          {rooms.map(({ attributes: room }, i) => {
+          {rooms?.map(({ attributes: room }, i) => {
             const imageUrl =
               room?.images?.data?.[0]?.attributes?.formats?.thumbnail?.url || ''
 

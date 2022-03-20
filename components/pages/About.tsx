@@ -1,12 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import {
-  AnnotationIcon,
-  GlobeAltIcon,
-  LightningBoltIcon,
-  MailIcon,
-  ScaleIcon,
-} from '@heroicons/react/outline'
+import { GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@heroicons/react/outline'
 
 const transferFeatures = [
   {
