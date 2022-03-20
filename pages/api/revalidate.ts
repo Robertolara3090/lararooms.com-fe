@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   try {
     await res.unstable_revalidate('/rooms')
-    await res.unstable_revalidate('/rooms/a')
+    await res.unstable_revalidate('/rooms/test')
     return res.json({ revalidated: true })
   } catch (err) {
     // If there was an error, Next.js will continue
