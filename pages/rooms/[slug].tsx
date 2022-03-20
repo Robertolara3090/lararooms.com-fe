@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 
   return {
     paths: paths || [],
-    fallback: true,
+    fallback: 'blocking',
   }
 }
 
@@ -57,6 +57,5 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { room: roomsRes?.data?.[0]?.attributes || null },
-    revalidate: 60,
   }
 }
