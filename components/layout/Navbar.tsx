@@ -1,5 +1,6 @@
 import React, { createRef, useState, useEffect, Fragment } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 import { NAVBAR_MENU_DATA } from '../../config/contants/menuData'
 
@@ -16,6 +17,7 @@ type MainNavProps = {
 const Navbar: React.FC<MainNavProps> = ({ sticky = false, className, ...rest }) => {
   const [isSticky, setIsSticky] = useState(false)
   const ref = createRef() as any
+  const router = useRouter()
 
   // mount
   useEffect(() => {
@@ -56,7 +58,15 @@ const Navbar: React.FC<MainNavProps> = ({ sticky = false, className, ...rest }) 
                   {NAVBAR_MENU_DATA.map(({ name, url }) => (
                     <li key={name} className={styles.link}>
                       <Link href={url}>
-                        <a>{name}</a>
+                        <a
+                          className={
+                            `/${router.pathname.replace(/^\/([^\/]*).*$/, '$1')}` == url
+                              ? 'pb-2 border-blue-500 border-b-2'
+                              : ''
+                          }
+                        >
+                          {name}
+                        </a>
                       </Link>
                     </li>
                   ))}
@@ -92,17 +102,29 @@ const Navbar: React.FC<MainNavProps> = ({ sticky = false, className, ...rest }) 
                 static
                 className="bg-white absolute inset-x-0 p-2 transition transform origin-top-right md:hidden z-50 h-screen"
               >
-                <div className="rounded-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                  <div className="bg-white absolute w-full top-[50%] transform -translate-y-1/2 px-2 pt-2 pb-3 space-y-1 text-center">
-                    {NAVBAR_MENU_DATA.map((item) => (
-                      <Link key={item.name} href={item.url}>
-                        <a className="block pl-3 pr-4 py-10 rounded-md text-3xl font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
-                          {item.name}
-                        </a>
-                      </Link>
-                    ))}
+                {({ close }) => (
+                  <div className="rounded-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div className="bg-white absolute w-full top-[50%] transform -translate-y-1/2 px-2 pt-2 pb-3 space-y-1 text-center">
+                      {NAVBAR_MENU_DATA.map((item) => {
+                        return (
+                          <Link key={item.name} href={item.url}>
+                            <a
+                              onClick={() => close()}
+                              className={`block pl-3 pr-4 py-10 rounded-md text-3xl font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ${
+                                `/${router.pathname.replace(/^\/([^\/]*).*$/, '$1')}` ==
+                                item.url
+                                  ? 'underline'
+                                  : ''
+                              }`}
+                            >
+                              {item.name}
+                            </a>
+                          </Link>
+                        )
+                      })}
+                    </div>
                   </div>
-                </div>
+                )}
               </Popover.Panel>
             </Transition>
           </>

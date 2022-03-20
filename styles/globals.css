@@ -21,6 +21,10 @@ a {
   box-sizing: border-box;
 }
 
+.cursor-map {
+  cursor: url('https://cdn-icons-png.flaticon.com/512/235/235861.png'), pointer;
+}
+
 .fade {
   -webkit-box-orient: vertical;
   display: -webkit-box;

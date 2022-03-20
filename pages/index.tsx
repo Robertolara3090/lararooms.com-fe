@@ -1,8 +1,10 @@
+import { fetchAPI } from 'lib/fetchAPI'
 import Head from 'next/head'
+import { ApiResponse, Room, StrapiAttribute } from 'types'
 
 import Home from '../components/pages/Home'
 
-export default function HomePage() {
+export default function HomePage({ featuredRoom }: { featuredRoom: Room | null }) {
   return (
     <>
       <Head>
@@ -11,7 +13,23 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Home />
+      <Home featuredRoom={featuredRoom} />
     </>
   )
+}
+
+export async function getStaticProps() {
+  const roomsRes = await fetchAPI<ApiResponse<StrapiAttribute<Room>[]>>('/rooms', {
+    populate: 'images',
+  })
+
+  const featuredRoom = roomsRes?.data?.find((room) => {
+    return room?.attributes.featured
+  })
+
+  return {
+    props: {
+      featuredRoom: featuredRoom?.attributes || null,
+    },
+  }
 }

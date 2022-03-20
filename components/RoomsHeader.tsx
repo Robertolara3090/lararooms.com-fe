@@ -1,8 +1,8 @@
-import { ChevronDownIcon, SearchIcon, SortAscendingIcon } from '@heroicons/react/solid'
+// import { ChevronDownIcon, SearchIcon, SortAscendingIcon } from '@heroicons/react/solid'
 
 export default function RoomsHeader() {
   return (
-    <div className="px-4 pb-5 border-b border-gray-200 sm:flex sm:items-center sm:justify-between">
+    <div className="px-4 pb-5 md:mt-14 border-b border-gray-200 sm:flex sm:items-center sm:justify-between">
       <h3 className="text-3xl sm:text-5xl leading-6 font-bold text-gray-900">
         Our Rooms
       </h3>

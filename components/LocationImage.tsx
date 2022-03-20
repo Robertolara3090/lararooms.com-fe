@@ -2,13 +2,14 @@ import Image from 'next/image'
 
 export default function LocationImage() {
   return (
-    <div className="relative bg-gray-100 inline-block">
-      <img
-        src="/assets/images/london_map.jpg"
-        alt="Picture of London underground"
-
-        // objectPosition="0% 20%"
-      />
-    </div>
+    <Image
+      src="/assets/images/london_map.jpg"
+      alt=""
+      title=""
+      width="100%"
+      height="100%"
+      layout="responsive"
+      objectFit="cover"
+    />
   )
 }

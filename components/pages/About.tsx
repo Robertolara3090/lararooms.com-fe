@@ -8,19 +8,17 @@ import {
   ScaleIcon,
 } from '@heroicons/react/outline'
 
-import ContactUs from '../ContactUs'
-
 const transferFeatures = [
   {
     id: 1,
-    name: '',
+
     description: `We have more than 5 years of experience helping people from all over the
       world to find a good room in London`,
     icon: GlobeAltIcon,
   },
   {
     id: 2,
-    name: '',
+
     description: `We help all kinds of people, foreign people who come to London to study or
       to look for a new job, also people from the country who are looking for a
       new house to live with new people.`,
@@ -28,29 +26,14 @@ const transferFeatures = [
   },
   {
     id: 3,
-    name: '',
+
     description: `Our main idea is to help you save time and headaches to find a good room in
       which we promise that your stay with Lara rooms in London will be remembered
       as a very good stage in your life.`,
     icon: LightningBoltIcon,
   },
 ]
-const communicationFeatures = [
-  {
-    id: 1,
-    name: 'Mobile notifications',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: AnnotationIcon,
-  },
-  {
-    id: 2,
-    name: 'Reminder emails',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: MailIcon,
-  },
-]
+
 const About: React.FC = () => {
   return (
     <>
@@ -112,18 +95,15 @@ const About: React.FC = () => {
 
               <dl className="mt-10 space-y-10">
                 {transferFeatures.map((item) => (
-                  <div key={item.id} className="relative">
-                    <dt>
-                      <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
-                        <item.icon className="h-6 w-6" aria-hidden="true" />
-                      </div>
-                      <p className="ml-16 text-lg leading-6 font-medium text-gray-900">
-                        {item.name}
-                      </p>
-                    </dt>
-                    <dd className="mt-2 ml-16 text-base text-gray-600">
-                      {item.description}
-                    </dd>
+                  <div key={item.id} className="relative flex">
+                    {item.icon && (
+                      <dt className="flex items-center pr-4">
+                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                          <item.icon className="h-6 w-6" aria-hidden="true" />
+                        </div>
+                      </dt>
+                    )}
+                    <dd className="text-base text-gray-600">{item.description}</dd>
                   </div>
                 ))}
               </dl>
@@ -302,7 +282,6 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
-      <ContactUs />
     </>
   )
 }

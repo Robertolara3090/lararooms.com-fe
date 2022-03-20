@@ -2,8 +2,9 @@ import { fetchAPI } from 'lib/fetchAPI'
 import React from 'react'
 
 import Room from 'components/pages/Room'
+import { Room as IRoom, StrapiAttribute, ApiResponse } from 'types'
 
-const RoomPage = ({ room }: { room: any }) => {
+const RoomPage = ({ room }: { room: IRoom }) => {
   return (
     <>
       <Room room={room} />
@@ -14,35 +15,36 @@ const RoomPage = ({ room }: { room: any }) => {
 export default RoomPage
 
 export async function getStaticPaths() {
-  try {
-    const roomsRes = await fetchAPI('/rooms', { fields: ['slug'] })
-    return {
-      paths: roomsRes.data.map((room) => ({
-        params: {
-          slug: room.attributes.slug,
-        },
-      })),
-      fallback: false,
-    }
-  } catch (e) {
-    console.log(e)
-    return { paths: [], fallback: false }
+  const roomsRes = await fetchAPI<ApiResponse<StrapiAttribute<IRoom>[]>>('/rooms', {
+    fields: ['slug'],
+  })
+  return {
+    paths: roomsRes.data.map((room) => ({
+      params: {
+        slug: room.attributes.slug,
+      },
+    })),
+    fallback: false,
   }
 }
 
 export async function getStaticProps({ params }) {
-  try {
-    const roomsRes = await fetchAPI('/rooms', {
-      filters: {
-        slug: params.slug,
+  const roomsRes = await fetchAPI<ApiResponse<StrapiAttribute<IRoom>[]>>('/rooms', {
+    filters: {
+      slug: params.slug,
+    },
+    populate: {
+      images: {
+        populate: '*',
       },
-    })
+      nearBy: {
+        populate: '*',
+      },
+    },
+  })
 
-    return {
-      props: { room: roomsRes.data[0].attributes },
-      revalidate: 60,
-    }
-  } catch (error) {
-    console.log(error)
+  return {
+    props: { room: roomsRes.data[0].attributes },
+    revalidate: 60,
   }
 }

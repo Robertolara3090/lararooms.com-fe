@@ -47,24 +47,8 @@ export default function ContactUs() {
                     />
                     <span className="ml-3">roberto@lararooms.com</span>
                   </dd>
-                  {/* location */}
-                  {/* <dt>
-                  <span className="sr-only">Location</span>
-                </dt>
-                <dd className="flex text-2xl text-white">
-                  <LocationMarkerIcon
-                    className="flex-shrink-0 w-8 h-8 text-white"
-                    aria-hidden="true"
-                  />
-                  <span className="ml-3">53B Hanburu street whatever 20</span>
-                </dd> */}
-                  {/* location */}
-                  <dt>
-                    {/* <img
-                      src="/assets/images/lararooms_1.png"
-                      className="mix-blend-overlay"
-                    /> */}
 
+                  <dt>
                     <Image
                       src="/assets/images/white-logo-3d.png"
                       alt="Logo"
@@ -78,7 +62,7 @@ export default function ContactUs() {
               </div>
 
               {/* Contact form */}
-              <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12 ">
+              <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12 text-black">
                 <h3 className="text-lg md:text-xl font-bold lg:text-3xl text-white">
                   Send us a message
                 </h3>
@@ -100,7 +84,7 @@ export default function ContactUs() {
                         name="first_name"
                         id="first_name"
                         autoComplete="given-name"
-                        className="py-3 px-4 block w-full shadow-sm text-white focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md"
+                        className="py-3 px-4 block w-full shadow-sm  focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md"
                       />
                     </div>
                   </div>
@@ -117,7 +101,7 @@ export default function ContactUs() {
                         name="last_name"
                         id="last_name"
                         autoComplete="family-name"
-                        className="py-3 px-4 block w-full shadow-sm text-white focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md"
+                        className="py-3 px-4 block w-full shadow-sm  focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md"
                       />
                     </div>
                   </div>
@@ -134,7 +118,7 @@ export default function ContactUs() {
                         name="email"
                         type="email"
                         autoComplete="email"
-                        className="py-3 px-4 block w-full shadow-sm text-white focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md"
+                        className="py-3 px-4 block w-full shadow-sm  focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md"
                       />
                     </div>
                   </div>
@@ -146,7 +130,7 @@ export default function ContactUs() {
                       >
                         Phone
                       </label>
-                      <span id="phone-optional" className="text-sm text-gray-500">
+                      <span id="phone-optional" className="text-sm text-white">
                         Optional
                       </span>
                     </div>
@@ -156,7 +140,7 @@ export default function ContactUs() {
                         name="phone"
                         id="phone"
                         autoComplete="tel"
-                        className="py-3 px-4 block w-full shadow-sm text-white focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md"
+                        className="py-3 px-4 block w-full shadow-sm  focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md"
                         aria-describedby="phone-optional"
                       />
                     </div>
@@ -176,7 +160,7 @@ export default function ContactUs() {
                         id="message"
                         name="message"
                         rows={4}
-                        className="py-3 px-4 block w-full shadow-sm text-white focus:ring-blue-500 focus:border-blue-500 border border-gray-300 rounded-md"
+                        className="py-3 px-4 block w-full shadow-sm  focus:ring-blue-500 focus:border-blue-500 border border-gray-300 rounded-md"
                         aria-describedby="message-max"
                         defaultValue={''}
                       />
