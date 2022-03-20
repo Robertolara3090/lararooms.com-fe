@@ -18,7 +18,7 @@ const Rooms = ({ rooms }: { rooms: StrapiAttribute<Room>[] }) => {
           className="pb-20 mx-6 sm:mx-0"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(310px, 1fr))',
             gap: '1em',
             justifyItems: 'start',
           }}

@@ -14,6 +14,7 @@ export async function getStaticProps() {
   const roomsRes = await fetchAPI<ApiResponse<StrapiAttribute<Room>[]>>('/rooms', {
     populate: '*',
   })
+
   return {
     props: {
       rooms: roomsRes?.data || null,
