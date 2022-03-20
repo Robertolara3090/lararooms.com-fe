@@ -1,3 +1,3 @@
 # lararooms.com-fe
 
-personal site to host my rooms.
+personal site to host my rooms
