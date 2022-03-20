@@ -57,5 +57,6 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { room: roomsRes?.data?.[0]?.attributes || null },
+    revalidate: 60,
   }
 }
