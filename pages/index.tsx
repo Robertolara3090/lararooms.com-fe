@@ -24,7 +24,7 @@ export async function getStaticProps() {
   })
 
   const featuredRoom = roomsRes?.data?.find((room) => {
-    return room?.attributes.featured
+    return room?.attributes?.featured
   })
 
   return {

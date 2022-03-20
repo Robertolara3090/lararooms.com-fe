@@ -16,7 +16,7 @@ export async function getStaticProps() {
   })
   return {
     props: {
-      rooms: roomsRes.data,
+      rooms: roomsRes?.data || null,
     },
   }
 }

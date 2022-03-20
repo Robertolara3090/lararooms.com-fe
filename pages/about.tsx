@@ -1,6 +1,4 @@
-import { fetchAPI } from 'lib/fetchAPI'
 import React from 'react'
-import { ApiResponse, StrapiAttribute } from 'types'
 
 import About from '../components/pages/About'
 

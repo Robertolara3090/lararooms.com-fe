@@ -19,9 +19,9 @@ export async function getStaticPaths() {
     fields: ['slug'],
   })
   return {
-    paths: roomsRes.data.map((room) => ({
+    paths: roomsRes?.data?.map((room) => ({
       params: {
-        slug: room.attributes.slug,
+        slug: room?.attributes?.slug,
       },
     })),
     fallback: false,
@@ -31,7 +31,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const roomsRes = await fetchAPI<ApiResponse<StrapiAttribute<IRoom>[]>>('/rooms', {
     filters: {
-      slug: params.slug,
+      slug: params?.slug,
     },
     populate: {
       images: {
@@ -44,7 +44,7 @@ export async function getStaticProps({ params }) {
   })
 
   return {
-    props: { room: roomsRes.data[0].attributes },
+    props: { room: roomsRes?.data?.[0]?.attributes || null },
     revalidate: 60,
   }
 }
