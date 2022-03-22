@@ -22,7 +22,7 @@ const Room = ({ room }: { room: Room }) => {
           </div>
           <div className="md:flex-1 shrink-0 px-4">
             <p className="text-blue-800 text-lg">
-              {room?.allBillsIncluded ? 'All bills included' : ''}
+              {room?.allBillsIncluded ? 'ALL BILLS INCLUDED' : ''}
             </p>
             <h2 className="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-3xl md:text-4xl">
               {room?.title}
@@ -37,7 +37,7 @@ const Room = ({ room }: { room: Room }) => {
               <div className="sm:col-span-2 hover:cursor-map">
                 <dt className="text-sm font-medium text-gray-500">Location</dt>
                 <dd className="mt-1 text-sm text-gray-900 space-y-1">
-                  <span className="inline-flex items-center font-medium text-lg text-gray-900 mr-0.5 hover:underline">
+                  <span className="inline-flex items-center font-medium text-xl text-gray-900 mr-0.5 hover:underline">
                     <a
                       target="_blank"
                       rel="noopener"
@@ -57,7 +57,7 @@ const Room = ({ room }: { room: Room }) => {
               </div>
               <div className="sm:col-span-1">
                 <dt className="text-sm font-medium text-gray-500">Rooms</dt>
-                <dd className="mt-1 text-lg text-gray-900">{room?.totalRooms}</dd>
+                <dd className="mt-1 text-xl text-gray-900">{room?.totalRooms}</dd>
               </div>
             </dl>
 

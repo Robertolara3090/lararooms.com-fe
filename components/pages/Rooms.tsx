@@ -35,7 +35,11 @@ const Rooms = ({ rooms }: { rooms: StrapiAttribute<Room>[] }) => {
                 >
                   <div className="rounded-2xl overflow-hidden flex justify-center cursor-pointer">
                     <div className="relative w-full object-cover z-10 aspect-video">
-                      <Image src={imageUrl} layout="fill" />
+                      {imageUrl ? (
+                        <Image src={imageUrl} layout="fill" />
+                      ) : (
+                        <div className="bg-gray-300 h-full w-full" />
+                      )}
                     </div>
                   </div>
                   <div className="p-3 flex-1">
